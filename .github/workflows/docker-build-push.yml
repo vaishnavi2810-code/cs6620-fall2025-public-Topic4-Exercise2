@@ -55,10 +55,10 @@ jobs:
           --document-name "AWS-RunShellScript" \
           --comment "Deploy cs6620-app from GitHub Actions" \
           --parameters 'commands=[
-            "docker pull ${{ secrets.DOCKERHUB_USERNAME }}/cs6620-app:latest",
-            "docker stop cs6620-app || true",
-            "docker rm cs6620-app || true",
-            "docker run -d -p 80:3000 --name cs6620-app --restart unless-stopped ${{ secrets.DOCKERHUB_USERNAME }}/cs6620-app:latest"
+            "/usr/bin/docker pull ${{ secrets.DOCKERHUB_USERNAME }}/cs6620-app:latest",
+            "/usr/bin/docker stop cs6620-app || true",
+            "/usr/bin/docker rm cs6620-app || true",
+            "/usr/bin/docker run -d -p 80:3000 --name cs6620-app --restart unless-stopped ${{ secrets.DOCKERHUB_USERNAME }}/cs6620-app:latest"
           ]'
 
     - name: Verify deployment sent
